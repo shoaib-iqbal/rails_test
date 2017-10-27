@@ -1,0 +1,42 @@
+      <div class="panel-body">
+        <div class="dataTable_wrapper">
+          <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+            <thead>
+                <tr>
+                    <th>All Services</th>
+                    <th>title</th>
+                    <th>description</th>
+                    <th>status</th>
+                    <th>type</th>
+                    <th>image</th>
+                    <th class="text-center">Actions</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+
+              <% @bugs.each_with_index do |bug,index| %>
+
+                <tr class="odd gradeX">
+                  <td><%= index+1 %></td>
+                  <td><%= bug.title %></td>
+                  <td><%= bug.description %></td>
+                  <td><%= bug.status %></td>
+                  <td><%= bug.bug_type %></td>
+                  <td><%= image_tag(bug.screen_shot.url(:thumb) )%></td>
+                  <td class="text-center">
+                      <span>
+                      <%= link_to '', edit_bug_path(bug) ,class: "edit fa fa-edit icon_link with-tip no-text", title: "edit"%>&nbsp; &nbsp;
+                      </span>
+                      <span>
+                     
+                      <%= link_to '',  bug_path(bug), method: :delete, data: { confirm: 'Are you sure?' } ,class: "delete fa fa-trash icon_link with-tip no-text" , title: "delete" %>
+                          
+                      </span>
+                  </td>
+                </tr>
+              <%end%>                                                                             
+            </tbody>
+          </table>
+        </div>
+      </div>

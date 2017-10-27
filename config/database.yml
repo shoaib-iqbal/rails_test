@@ -1,0 +1,7 @@
+  development:
+    adapter: postgresql
+    encoding: utf8
+    database: chanlange1
+    username: postgres
+    password: techverx
+    host: localhost

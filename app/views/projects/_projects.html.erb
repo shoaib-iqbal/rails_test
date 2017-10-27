@@ -1,0 +1,34 @@
+      <div class="panel-body">
+        <div class="dataTable_wrapper">
+          <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+            <thead>
+                <tr>
+                    <th>All Services</th>
+                    <th>title</th>
+                    <th class="text-center">Actions</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+
+              <% @projects.each_with_index do |project,index| %>
+
+                <tr class="odd gradeX">
+                  <td><%= index+1 %></td>
+                  <td><%= project.title %></td>
+                  <td class="text-center">
+                      <span>
+                      <%= link_to '', edit_project_path(project) ,class: "edit fa fa-edit icon_link with-tip no-text", title: "edit"%>&nbsp; &nbsp;
+                      </span>
+                      <span>
+                     
+                      <%= link_to '',  project_path(project), method: :delete, data: { confirm: 'Are you sure?' } ,class: "delete fa fa-trash icon_link with-tip no-text" , title: "delete" %>
+                          
+                      </span>
+                  </td>
+                </tr>
+              <%end%>                                                                             
+            </tbody>
+          </table>
+        </div>
+      </div>
