@@ -8,6 +8,8 @@
                     <th>description</th>
                     <th>status</th>
                     <th>type</th>
+                    <th>Reported by</th>
+                    <th>Assign to</th>
                     <th>image</th>
                     <th class="text-center">Actions</th>
                     
@@ -23,6 +25,8 @@
                   <td><%= bug.description %></td>
                   <td><%= bug.status %></td>
                   <td><%= bug.bug_type %></td>
+                  <td><%= bug.creator.try(:name )%></td>
+                  <td><%= bug.developer.try(:name )%></td>
                   <td><%= image_tag(bug.screen_shot.url(:thumb) )%></td>
                   <td class="text-center">
                       <span>

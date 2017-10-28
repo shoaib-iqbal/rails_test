@@ -1,5 +1,5 @@
 class BugsController < ApplicationController
-  #before_action :check_permission
+  before_action :check_permission,only: [:create]
   before_action :set_bug, only: [:show, :edit, :update, :destroy]
 
   # GET /bugs
